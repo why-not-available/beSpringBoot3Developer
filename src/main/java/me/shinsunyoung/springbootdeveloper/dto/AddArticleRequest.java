@@ -10,7 +10,7 @@ import me.shinsunyoung.springbootdeveloper.domain.Article;
 @AllArgsConstructor //: 모든 필드값을 파라미터로 받는 생성자 추가
 @Getter
 public class AddArticleRequest {
-    private  String title;
+    private String title;
     private String content;
 
     // toEntity: 빌더패턴을 사용해 DTO를 엔티티로 만들어주는 메소드
