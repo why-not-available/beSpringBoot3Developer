@@ -6,6 +6,8 @@ import me.shinsunyoung.springbootdeveloper.dto.AddArticleRequest;
 import me.shinsunyoung.springbootdeveloper.repository.BlogRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @RequiredArgsConstructor //: final이 붙거나 @NotNull이 붙은 필드의 생성자 추가하기, lombok에서 지원
 @Service //: 빈으로 등록하기
 public class BlogService {
@@ -15,4 +17,12 @@ public class BlogService {
     public Article save(AddArticleRequest request){
         return blogRepository.save(request.toEntity());
     }
+
+    // 데이터베이스에 저장되어있는 글을 모두 가져오는 findAll 메서드
+    public List<Article> findAll(){
+        return blogRepository.findAll();
+    }
+
+    
+
 }
