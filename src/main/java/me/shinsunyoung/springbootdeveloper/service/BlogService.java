@@ -23,6 +23,9 @@ public class BlogService {
         return blogRepository.findAll();
     }
 
-    
-
+    // DB에 저장되어있는 글의 ID를 이용해 글 조회하기
+    public Article findById(long id){
+        return blogRepository.findById(id)
+                             .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
+    }
 }
