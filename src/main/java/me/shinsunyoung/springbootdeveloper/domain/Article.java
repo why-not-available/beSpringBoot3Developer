@@ -28,6 +28,14 @@ public class Article {
         this.title = title;
         this.content = content;
     }
+
+//  업데이트
+    public void update(String title, String content){
+        this.title = title;
+        this.content = content;
+    }
+
+
 //    **Getter와 NoArgsConstructor의 사용으로 필요없어짐
 //    protected  Article(){
 //    }
