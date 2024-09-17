@@ -1,8 +1,10 @@
 package me.shinsunyoung.springbootdeveloper.service;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import me.shinsunyoung.springbootdeveloper.domain.Article;
 import me.shinsunyoung.springbootdeveloper.dto.AddArticleRequest;
+import me.shinsunyoung.springbootdeveloper.dto.UpdateArticleRequest;
 import me.shinsunyoung.springbootdeveloper.repository.BlogRepository;
 import org.springframework.stereotype.Service;
 
@@ -33,5 +35,15 @@ public class BlogService {
     // 블로그 글의 ID를 받아 deleteById(JPA에서 제공하는 메서드) 메서드로 DB에서 데이터를 삭제
     public void delete(long id) {
         blogRepository.deleteById(id);
+    }
+
+//  업데이트 메서드
+    @Transactional //: 매칭한 메서드를 하나의 트랜잭션으로 묶는 역할.
+    public Article update(long id, UpdateArticleRequest request){
+        Article article = blogRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
+        article.update(request.getTitle(), request.getContent());
+
+        return article;
     }
 }
