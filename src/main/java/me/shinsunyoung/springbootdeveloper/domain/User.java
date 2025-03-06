@@ -12,12 +12,12 @@ import java.util.List;
 @Table(name="users")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@Setter
+@Entity
 public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="email", updatable = false)
+    @Column(name="id", updatable = false)
     private Long id;
 
     @Column(name="email", nullable = false, unique = true)

@@ -7,10 +7,11 @@ spring:
         format_sql: true
 #   테이블 생성 후 data.sql 실행하기
     defer-datasource-initialization: true
-#   H2 콘솔 활성화하기
+# 데이터베이스 정보 추가
   datasource:
     url: jdbc:h2:mem:testdb
-
+    username: sa
+# H2 콘솔 활성화하기
   h2:
     console:
       enabled: true
